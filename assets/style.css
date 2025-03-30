@@ -3,7 +3,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    
 }
 body {
     background-image: url('https://wallpapers.com/images/hd/brazil-pictures-7a51r2wy2jaw49xk.jpg');
@@ -11,7 +12,6 @@ body {
     background-position: center;
     background-attachment: fixed;
     color: #e0e0e0;
-    line-height: 1.6;
     position: relative;
 }
 
@@ -39,22 +39,136 @@ header {
     align-items: center;
     padding: 15px 50px;
 }
-
 nav ul {
     list-style: none;
     display: flex;
     gap: 25px;
 }
-
 nav ul li a {
     text-decoration: none;
     color: #e0e0e0;
     font-size: 18px;
     transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
-
 nav ul li a:hover {
     color: #1DB954;
+}
+
+html {
+    scroll-behavior: smooth; /* Ativa o scroll suave */
+}
+
+h2 {
+    scroll-margin-top: 80px; /* Adiciona um offset para compensar o título */
+}
+
+/* Configuração da seção */
+#inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    background: transparent; /* Remove o fundo preto */
+    color: #e0e0e0; /* Cor do texto */
+}
+
+/* Container principal dividido em duas partes */
+.inicio-container {
+    display: flex; /* Divide em colunas */
+    justify-content: space-between; /* Espaço entre texto e foto */
+    align-items: center;
+    max-width: 1200px; /* Limita a largura total */
+    width: 90%;
+}
+
+/* Estilo para o lado esquerdo (texto) */
+.left {
+    flex: 1; /* Ocupa metade da largura */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.left h1 {
+    font-size: 48px; /* Tamanho do nome */
+    color: #1DB954; /* Cor verde destaque */
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+}
+
+.left p {
+    font-size: 18px; /* Tamanho do texto secundário */
+    line-height: 1.8; /* Espaçamento entre linhas */
+    margin-top: 10px;
+}
+
+/* Estilo para o lado direito (foto) */
+.right {
+    flex: 1; /* Ocupa metade da largura */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right img {
+    width: 300px; /* Tamanho da imagem */
+    height: auto;
+    border-radius: 50%; /* Torna a foto circular */
+    border: 5px solid #1DB954; /* Borda verde para destacar */
+}
+
+.cta-button {
+    display: inline-block;
+    background: #1DB954; /* Cor verde para o botão */
+    color: #121212; /* Contraste no texto */
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #25a35a; /* Cor verde mais escura no hover */
+    color: #ffffff; /* Destaque no texto ao passar o mouse */
+}
+/* Título (nome em destaque) */
+#typing-text {
+    font-size: 48px; /* Destaque maior para o nome */
+    color: #1DB954; /* Verde para chamar atenção */
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid #1DB954; /* Cursor piscante */
+    animation: blink 0.8s infinite; /* Efeito do cursor piscante */
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .inicio-container {
+        flex-direction: column; /* Alinha verticalmente */
+        text-align: center; /* Centraliza o conteúdo */
+    }
+
+    .left {
+        text-align: center; /* Centraliza o texto no mobile */
+        margin-bottom: 20px;
+    }
+
+    .right img {
+        width: 200px; /* Reduz o tamanho da imagem em telas menores */
+    }
 }
 
 /* Seções */
@@ -87,6 +201,152 @@ img {
     border: 3px solid #1DB954;
     margin-bottom: 20px;
 }
+
+/* Estilização da Seção Sobre Mim */
+#sobre {
+    padding: 20px 80px;
+    max-width: 1100px;
+    margin: auto;
+    background: rgba(20, 20, 20, 0.05); /* Fundo leve */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Cabeçalho da seção (Título e Seta) */
+.sobre-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Alinha título e seta horizontalmente */
+    cursor: pointer; /* Cursor de clique */
+}
+
+/* Animação do título (hover interativo) */
+.sobre-header h2 {
+    font-size: 36px;
+    color: #ffffff; /* Cor inicial */
+    margin: 0;
+    transition: color 0.3s ease, transform 0.3s ease; /* Transição suave */
+}
+
+.sobre-header h2:hover {
+    color: #1DB954; /* Fica verde ao passar o mouse */
+    transform: scale(1.1); /* Leve aumento no título */
+}
+
+/* Seta com rotação */
+.sobre-header .seta {
+    font-size: 24px;
+    color: #1DB954;
+    margin-left: 10px; /* Espaço entre título e seta */
+    transition: transform 0.3s ease; /* Suave rotação */
+}
+
+/* Seta girando (quando conteúdo aparece) */
+.sobre-header .seta.girar {
+    transform: rotate(180deg); /* Gira a seta para cima */
+}
+
+/* Conteúdo oculto/inicial */
+.sobre-conteudo {
+    margin-top: 20px;
+    display: none; /* Inicialmente oculto */
+    opacity: 0; /* Invisível */
+    transform: translateY(-10px); /* Pequeno deslocamento */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Suave transição */
+}
+
+.sobre-conteudo.mostrar {
+    display: block; /* Torna visível */
+    opacity: 1;
+    transform: translateY(0); /* Remove deslocamento */
+}
+
+/* Estilização Geral da Seção Ferramentas */
+#ferramentas {
+    padding: 50px 80px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    background: transparent; /* Remove o fundo branco */
+}
+
+/* Cabeçalho da seção (Título e Seta) */
+.ferramentas-header {
+    display: flex;
+    align-items: center; /* Alinha título e seta verticalmente */
+    justify-content: space-between; /* Alinha título e seta horizontalmente */
+    cursor: pointer; /* Mostra que é interativo */
+    padding-bottom: 10px; /* Espaço para o título */
+}
+
+/* Estilo do título */
+.ferramentas-header h2 {
+    font-size: 2rem;
+    color: #e0e0e0; /* Cor padrão */
+    margin: 0;
+    transition: color 0.3s ease, transform 0.3s ease; /* Transição suave */
+}
+
+.ferramentas-header h2:hover {
+    color: #1DB954; /* Fica verde ao passar o mouse */
+    transform: scale(1.1); /* Leve aumento no título */
+}
+
+/* Estilo da seta */
+.ferramentas-header .seta {
+    font-size: 24px; /* Tamanho da seta */
+    color: #1DB954; /* Cor padrão */
+    transition: transform 0.3s ease; /* Animação de rotação */
+    margin: 0 20px;
+}
+
+.seta.girar {
+    transform: rotate(180deg); /* Gira para cima quando conteúdo visível */
+}
+
+/* Configuração de Grade para os Ícones */
+.ferramentas-conteudo {
+    display: grid; /* Ativa o grid */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Cria colunas dinâmicas */
+    gap: 20px; /* Espaçamento entre as colunas */
+    margin-top: 20px; /* Espaçamento superior */
+    display: none; /* Inicialmente escondido */
+    opacity: 0; /* Invisível */
+    transform: translateY(-10px); /* Deslocamento para entrada suave */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Animação de aparição */
+}
+
+.ferramentas-conteudo.mostrar {
+    display: grid; /* Mostra o conteúdo */
+    opacity: 1; /* Aparece gradualmente */
+    transform: translateY(0); /* Remove deslocamento */
+}
+
+/* Centralização e Estilo dos Itens */
+.ferramentas-conteudo div {
+    text-align: center; /* Centraliza o texto */
+    color: #e0e0e0; /* Cor do texto */
+    transition: transform 0.3s ease-in-out; /* Transição para interatividade */
+}
+
+/* Efeito nos Ícones */
+.ferramentas-conteudo div i {
+    font-size: 48px; /* Tamanho dos ícones */
+    color: #ffffff; /* Cor padrão */
+    transition: transform 0.3s ease, color 0.3s ease; /* Efeitos suaves */
+}
+
+.ferramentas-conteudo div i:hover {
+    transform: scale(1.2); /* Aumenta o ícone ao passar o mouse */
+    color: #1DB954; /* Destaca o ícone com cor verde */
+}
+
+/* Ajuste do Texto nos Itens */
+.ferramentas-conteudo div p {
+    margin-top: 8px; /* Espaço entre o ícone e o texto */
+    font-size: 1rem; /* Tamanho do texto */
+    color: #e0e0e0; /* Cor padrão do texto */
+}
+
 
 /* Projetos */
 #projetospessoais ul {
