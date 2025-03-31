@@ -100,4 +100,36 @@ document.addEventListener("DOMContentLoaded", () => {
         ferramentasConteudo.classList.toggle("mostrar");
         ferramentasSeta.classList.toggle("girar");
     });
+
+    // Configuração para a seção "Acadêmico"
+    const academicoHeader = document.querySelector("#academico h2");
+    const academicoConteudo = document.querySelectorAll("#academico .educacao");
+    const academicoSeta = document.querySelector("#academico .seta");
+
+    academicoHeader.addEventListener("click", () => {
+        academicoConteudo.forEach((item) => item.classList.toggle("mostrar"));
+        academicoSeta.classList.toggle("girar");
+    });
+
+    // Configuração para a seção "Experiências"
+    const experienciasHeader = document.querySelector("#experiencias h2");
+    const experienciasConteudo = document.querySelectorAll("#experiencias .experiencia");
+    const experienciasSeta = document.querySelector("#experiencias .seta");
+
+    experienciasHeader.addEventListener("click", () => {
+        experienciasConteudo.forEach((item) => item.classList.toggle("mostrar"));
+        experienciasSeta.classList.toggle("girar");
+    });
+
+    // Configuração para a seção "Projetos"
+    const projetosHeader = document.querySelector("#projetospessoais h2");
+    const projetosConteudo = document.querySelector("#projetospessoais ul");
+    const projetosSeta = document.querySelector("#projetospessoais .seta");
+
+    projetosHeader.addEventListener("click", () => {
+        projetosConteudo.classList.toggle("mostrar");
+        projetosSeta.classList.toggle("girar");
+    });
 });
+
+

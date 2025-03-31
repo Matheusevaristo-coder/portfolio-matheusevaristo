@@ -22,8 +22,8 @@ body::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Tela escura com transparência */
-    z-index: -1; /* Coloca o overlay atrás do conteúdo */
+    background: rgba(0, 0, 0, 0.792); /* Tela escura com transparência */
+    z-index: -1 /* Coloca o overlay atrás do conteúdo */
 }
 
 header {
@@ -113,10 +113,11 @@ h2 {
 }
 
 .right img {
-    width: 300px; /* Tamanho da imagem */
-    height: auto;
-    border-radius: 50%; /* Torna a foto circular */
-    border: 5px solid #1DB954; /* Borda verde para destacar */
+    width: 300px; /* Define a largura da imagem */
+    height: auto; /* Define a altura da imagem */
+    border-radius: 50%; /* Transforma a imagem em um círculo */
+    border: 3px solid #1DB954; /* Adiciona uma borda */
+    margin-bottom: 20px; /* Espaço inferior */
 }
 
 .cta-button {
@@ -173,7 +174,6 @@ h2 {
 
 /* Seções */
 section {
-    padding: 100px 80px;
     max-width: 1100px;
     margin: auto;
     display: flex;
@@ -205,6 +205,7 @@ img {
 /* Estilização da Seção Sobre Mim */
 #sobre {
     padding: 20px 80px;
+    text-align: justify;
     max-width: 1100px;
     margin: auto;
     background: rgba(20, 20, 20, 0.05); /* Fundo leve */
@@ -262,8 +263,9 @@ img {
 }
 
 /* Estilização Geral da Seção Ferramentas */
+/* Estilização Geral da Seção Ferramentas */
 #ferramentas {
-    padding: 50px 80px; /* Espaçamento interno */
+    padding: 20px 80px; /* Espaçamento interno */
     border-radius: 10px; /* Bordas arredondadas */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
     background: transparent; /* Remove o fundo branco */
@@ -296,82 +298,315 @@ img {
     font-size: 24px; /* Tamanho da seta */
     color: #1DB954; /* Cor padrão */
     transition: transform 0.3s ease; /* Animação de rotação */
-    margin: 0 20px;
+    padding: 0 20px;
 }
 
 .seta.girar {
     transform: rotate(180deg); /* Gira para cima quando conteúdo visível */
 }
 
-/* Configuração de Grade para os Ícones */
+/* Configuração para Mostrar ou Ocultar o Conteúdo */
 .ferramentas-conteudo {
-    display: grid; /* Ativa o grid */
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Cria colunas dinâmicas */
-    gap: 20px; /* Espaçamento entre as colunas */
-    margin-top: 20px; /* Espaçamento superior */
     display: none; /* Inicialmente escondido */
     opacity: 0; /* Invisível */
+    list-style: none; /* Remove os marcadores padrão da lista */
     transform: translateY(-10px); /* Deslocamento para entrada suave */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Animação de aparição */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Animação suave */
 }
 
 .ferramentas-conteudo.mostrar {
-    display: grid; /* Mostra o conteúdo */
-    opacity: 1; /* Aparece gradualmente */
-    transform: translateY(0); /* Remove deslocamento */
+    display: grid; /* Exibe o conteúdo em grid */
+    grid-template-columns: repeat(3, 1fr); /* Divide em 3 colunas fixas */
+    gap: 20px; /* Espaçamento entre os itens */
+    opacity: 1; /* Faz os itens aparecerem */
+    transform: translateY(0); /* Remove o deslocamento */
 }
 
-/* Centralização e Estilo dos Itens */
-.ferramentas-conteudo div {
-    text-align: center; /* Centraliza o texto */
-    color: #e0e0e0; /* Cor do texto */
-    transition: transform 0.3s ease-in-out; /* Transição para interatividade */
+/* Estilo para os Itens da Lista */
+.ferramentas-conteudo li {
+    text-align: center; /* Centraliza o conteúdo */
+    color: #e0e0e0; /* Cor padrão do texto */
+    transition: transform 0.3s ease-in-out; /* Efeito ao passar o mouse */
 }
 
-/* Efeito nos Ícones */
-.ferramentas-conteudo div i {
+/* Estilo dos Ícones */
+.ferramentas-conteudo li i {
     font-size: 48px; /* Tamanho dos ícones */
     color: #ffffff; /* Cor padrão */
-    transition: transform 0.3s ease, color 0.3s ease; /* Efeitos suaves */
+    transition: transform 0.3s ease, color 0.3s ease; /* Suaviza as mudanças */
 }
 
-.ferramentas-conteudo div i:hover {
-    transform: scale(1.2); /* Aumenta o ícone ao passar o mouse */
-    color: #1DB954; /* Destaca o ícone com cor verde */
+.ferramentas-conteudo li i:hover {
+    transform: scale(1.2); /* Aumenta o ícone no hover */
+    color: #1DB954; /* Destaca o ícone com verde */
 }
 
 /* Ajuste do Texto nos Itens */
-.ferramentas-conteudo div p {
+.ferramentas-conteudo li p {
     margin-top: 8px; /* Espaço entre o ícone e o texto */
     font-size: 1rem; /* Tamanho do texto */
     color: #e0e0e0; /* Cor padrão do texto */
 }
 
-
-/* Projetos */
-#projetospessoais ul {
+/*academico*/
+/* Seção Acadêmico */
+#academico {
+    padding: 20px 80px;
+    background: rgba(20, 20, 20, 0.05); /* Fundo leve */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+.academico-header {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    align-items: center;
+    justify-content: space-between; /* Alinha título e seta horizontalmente */
+    cursor: pointer; /* Cursor de clique */
+}
+/* Cabeçalho da seção */
+#academico h2 {
+    font-size: 2rem;
+    color: #e0e0e0; /* Cor padrão */
+    display: flex;
+    justify-content: space-between; /* Título e seta horizontalmente alinhados */
+    align-items: center; /* Alinha título e seta verticalmente */
+    cursor: pointer;
+    padding-bottom: 8px;
+    margin-bottom: 15px; /* Espaço abaixo do título */
+    transition: color 0.3s ease, transform 0.3s ease; /* Animação suave */
 }
 
-#projetospessoais li {
-    list-style: none;
+#academico h2:hover {
+    color: #1DB954; /* Fica verde ao passar o mouse */
+    transform: scale(1.1); /* Leve aumento no tamanho */
 }
 
-#projetospessoais a {
-    display: inline-block;
-    background: #1DB954;
-    color: #121212;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: 0.3s;
+/* Estilo da seta */
+#academico .seta {
+    font-size: 24px;
+    color: #1DB954;
+    transition: transform 0.3s ease; /* Suaviza a animação de rotação */
+    padding: 0 10px;
+
 }
 
-#projetospessoais a:hover {
-    background: #25a35a;
+#academico .seta.girar {
+    transform: rotate(180deg); /* Gira para cima quando ativo */
 }
+
+/* Conteúdo Acadêmico */
+#academico .educacao {
+    display: none; /* Escondido por padrão */
+    opacity: 0;
+    transform: translateY(-10px); /* Deslocamento inicial */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Suaviza as animações */
+}
+
+#academico .educacao.mostrar {
+    display: block; /* Torna visível */
+    opacity: 1; /* Faz o conteúdo aparecer gradualmente */
+    transform: translateY(0); /* Remove deslocamento */
+}
+
+#academico .educacao h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+#academico .educacao p {
+    color: #e0e0e0; /* Cor padrão dos textos */
+    margin: 5px 0;
+    line-height: 1.6; /* Espaçamento entre as linhas */
+}
+/*experiencia*/
+/* Seção Experiências */
+#experiencias {
+    padding: 20px 80px;
+    background: rgba(20, 20, 20, 0.05); /* Fundo leve */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+.experiencia-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Alinha título e seta horizontalmente */
+    cursor: pointer; /* Cursor de clique */
+}
+
+/* Cabeçalho da seção */
+#experiencias h2 {
+    font-size: 2rem;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#experiencias h2:hover {
+    color: #1DB954;
+    transform: scale(1.1);
+}
+
+/* Estilo da seta */
+#experiencias .seta {
+    font-size: 24px;
+    margin-left: 10px;
+    color: #1DB954;
+    transition: transform 0.3s ease;
+    padding: 0 10px;
+}
+
+#experiencias .seta.girar {
+    transform: rotate(180deg);
+}
+
+/* Conteúdo Experiências */
+#experiencias .experiencia {
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#experiencias .experiencia.mostrar {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#experiencias .experiencia h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+#experiencias .experiencia p {
+    color: #e0e0e0;
+    margin: 5px 0;
+    line-height: 1.6;
+}
+
+/* Seção Projetos Pessoais */
+#projetospessoais {
+    padding: 20px 80px;
+    background: rgba(20, 20, 20, 0.05);
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho da seção */
+#projetospessoais h2 {
+    font-size: 2rem;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#projetospessoais h2:hover {
+    color: #1DB954;
+    transform: scale(1.1);
+}
+
+/* Estilo da seta */
+#projetospessoais .seta {
+    font-size: 24px;
+    color: #1DB954;
+    transition: transform 0.3s ease;
+    padding: 0 10px;
+
+}
+
+#projetospessoais .seta.girar {
+    transform: rotate(180deg);
+}
+
+/* Conteúdo Projetos */
+#projetospessoais ul {
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#projetospessoais ul.mostrar {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#projetospessoais ul li {
+    margin: 8px 0;
+}
+
+#projetospessoais ul li a {
+    text-decoration: none;
+    color: #1DB954;
+    font-size: 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#projetospessoais ul li a:hover {
+    color: #e0e0e0;
+    transform: scale(1.05);
+}
+/* Conteúdo Projetos em Grade */
+.projetos-conteudo {
+    display: grid; /* Ativa o Grid Layout */
+    grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas de tamanhos iguais */
+    gap: 20px; /* Espaçamento entre os itens */
+    justify-items: center; /* Centraliza os itens dentro das colunas */
+    padding: 20px 0; /* Espaçamento interno da seção */
+}
+
+/* Estilo dos botões */
+.projetos-conteudo button {
+    width: 100%; /* Ocupa toda a largura da célula */
+    max-width: 300px; /* Define um tamanho máximo para os botões */
+    padding: 12px 20px; /* Espaçamento interno */
+    font-size: 1rem; /* Tamanho da fonte */
+    color: #ffffff; /* Cor do texto */
+    background: #1DB954; /* Cor do botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostra o cursor de clique */
+    transition: background 0.3s ease, transform 0.3s ease; /* Animação suave */
+    text-align: center; /* Centraliza o texto dentro do botão */
+}
+
+/* Estilo ao passar o mouse */
+.projetos-conteudo button:hover {
+    background: #17a34a; /* Cor mais escura ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento no tamanho */
+}
+
+/* Efeito de clique */
+.projetos-conteudo button:active {
+    transform: scale(0.97); /* Botão encolhe levemente ao clicar */
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 768px) {
+    .projetos-conteudo {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .projetos-conteudo {
+        grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
+    }
+}
+
+
 
 footer {
     background: rgba(20, 20, 20, 0.9); /* Fundo escuro e semi-transparente */
