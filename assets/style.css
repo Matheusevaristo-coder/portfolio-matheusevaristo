@@ -644,3 +644,118 @@ footer i {
 footer a:hover i {
     opacity: 0.8;
 }
+/* Responsividade para o footer */
+@media (max-width: 768px) {
+    footer p {
+      font-size: 16px; /* Reduz o tamanho da fonte */
+      flex-direction: column; /* Alinha verticalmente em telas menores */
+    }
+
+    footer a {
+      font-size: 14px; /* Texto menor no mobile */
+    }
+
+    footer i {
+      font-size: 18px; /* Ícones menores em telas menores */
+    }
+} 
+@media (max-width: 480px) {
+    footer {
+      padding: 10px; /* Espaço interno reduzido */
+    }
+
+    footer p {
+      font-size: 14px; /* Texto ainda menor */
+    }
+
+    footer i {
+      font-size: 16px; /* Ícones ainda menores */
+    }
+}
+/* Ícone do menu hambúrguer */
+.menu-icon {
+    display: none; /* Esconde em telas grandes */
+    font-size: 24px;
+    color: #e0e0e0;
+    cursor: pointer;
+}
+
+/* Estilo do menu em telas grandes */
+nav ul {
+    display: flex; /* Mantém visível */
+    list-style: none;
+    gap: 20px;
+}
+
+/* Menu responsivo */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Mostra o ícone no mobile */
+    }
+
+    nav ul {
+        display: none; /* Esconde o menu inicialmente */
+        flex-direction: column;
+        background: rgba(20, 20, 20, 0.95);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 15px;
+        border-radius: 8px;
+        z-index: 1000;
+    }
+
+    #nav-menu.active {
+        display: flex; /* Mostra o menu quando ativo */
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        font-size: 16px;
+        flex-direction: column; /* Alinha os itens verticalmente */
+        padding: 10px 20px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Menu empilhado no mobile */
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Texto menor em telas pequenas */
+    }
+
+    main {
+        padding: 15px; /* Reduz o espaçamento */
+        font-size: 16px; /* Ajusta o tamanho da fonte */
+    }
+
+    footer {
+        font-size: 14px; /* Texto menor */
+        padding: 10px; /* Menor espaço interno */
+    }
+
+    .right img {
+        width: 200px; /* Reduz o tamanho da imagem */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 14px; /* Tamanho menor para telas muito pequenas */
+    }
+
+    nav ul {
+        gap: 5px; /* Reduz os espaços no menu */
+    }
+
+    main {
+        font-size: 14px; /* Ajuste adicional para texto */
+    }
+
+    footer {
+        font-size: 12px; /* Texto ainda menor */
+    }
+}

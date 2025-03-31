@@ -132,4 +132,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// menu hamburguer nav
+// Seleciona o ícone do menu e o menu de navegação
+const menuIcon = document.getElementById("menu-icon");
+const navMenu = document.querySelector("nav ul");
+
+// Alterna a classe 'active' para abrir ou fechar o menu
+menuIcon.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+});
 
