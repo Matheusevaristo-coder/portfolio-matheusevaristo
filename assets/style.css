@@ -27,7 +27,7 @@ body::after {
 }
 
 header {
-    background: rgba(20, 20, 20, 0.9);
+    background: rgba(20, 20, 20, 0.9); /* Fundo escuro e semi-transparente */
     padding: 15px 0;
     position: fixed;
     width: 100%;
@@ -35,26 +35,35 @@ header {
     left: 0;
     z-index: 1000;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 15px 50px; /* Mantém o espaçamento interno */
 }
+
+nav {
+    display: flex; /* Garante flexibilidade do nav */
+    justify-content: center; /* Centraliza o menu */
+    align-items: center; /* Centraliza verticalmente */
+}
+
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
+    list-style: none; /* Remove as bolinhas */
+    display: flex; /* Organiza os itens horizontalmente */
+    gap: 25px; /* Espaçamento entre os itens */
 }
+
 nav ul li a {
-    text-decoration: none;
-    color: #e0e0e0;
+    text-decoration: none; /* Remove sublinhado */
+    color: #e0e0e0; /* Cor do texto */
     font-size: 18px;
-    transition: 0.3s;
+    transition: 0.3s; /* Suaviza o efeito no hover */
     display: flex;
-    align-items: center;
-    gap: 8px;
+    align-items: center; /* Centraliza ícone e texto no item */
+    gap: 8px; /* Espaço entre ícone e texto */
 }
+
 nav ul li a:hover {
-    color: #1DB954;
+    color: #1DB954; /* Cor ao passar o mouse */
 }
 
 html {
@@ -611,17 +620,24 @@ img {
 footer {
     background: rgba(20, 20, 20, 0.9); /* Fundo escuro e semi-transparente */
     color: #e0e0e0;
-    text-align: center;
+    text-align: center; /* Centraliza o texto */
     padding: 15px;
     margin-top: 50px;
+
+    /* Flexbox para centralização completa */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    flex-direction: column; /* Garante alinhamento vertical do conteúdo interno */
 }
 
 footer p {
     font-size: 18px;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centraliza os links horizontalmente */
     align-items: center;
     gap: 15px; /* Espaço entre os itens */
+    margin: 0; /* Remove margens adicionais */
 }
 
 footer a {
@@ -632,7 +648,7 @@ footer a {
 }
 
 footer a:hover {
-    color: #1DB954;
+    color: #1DB954; /* Cor ao passar o mouse */
 }
 
 footer i {
@@ -642,8 +658,9 @@ footer i {
 }
 
 footer a:hover i {
-    opacity: 0.8;
+    opacity: 0.8; /* Efeito hover nos ícones */
 }
+
 /* Responsividade para o footer */
 @media (max-width: 768px) {
     footer p {
@@ -716,6 +733,7 @@ nav ul {
         font-size: 16px;
         flex-direction: column; /* Alinha os itens verticalmente */
         padding: 10px 20px;
+
     }
 
     nav ul {
