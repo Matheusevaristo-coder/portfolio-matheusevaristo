@@ -1,144 +1,83 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Texto para o efeito de digitação
+    
+    // --- EFEITO DE DIGITAÇÃO PARA O TÍTULO ---
     const text = "Matheus Evaristo";
     const typingText = document.getElementById("typing-text");
-    let index = 0;
+    if (typingText) {
+        let index = 0;
+        function type() {
+            if (index < text.length) {
+                typingText.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 100);
+            } else {
+                // Remove o cursor piscante no final da animação
+                typingText.style.borderRightColor = "transparent";
 
-    // Função para realizar o efeito de digitação
-    function type() {
-        if (index < text.length) {
-            typingText.innerHTML += text[index];
-            index++;
-            setTimeout(type, 100); // Velocidade da digitação (100ms por caractere)
-        } else {
-            typingText.style.borderRight = "none"; // Remove o cursor piscante no final
+            }
         }
+        type();
     }
 
-    type();
-});
+    // --- LÓGICA DO MENU HAMBÚRGUER ---
+    const menuIcon = document.getElementById("menu-icon");
+    const navMenu = document.getElementById("nav-menu");
 
-// Efeito de Sombra ao Passar o Mouse nos Links do Nav
-document.addEventListener("DOMContentLoaded", function () {
-    let links = document.querySelectorAll("nav ul li a");
-
-    links.forEach((link) => {
-        // Adiciona o efeito de sombra ao passar o mouse
-        link.addEventListener("mouseover", function () {
-            link.style.textShadow = "0 0 8px #1DB954"; // Cor verde destacada
+    if (menuIcon && navMenu) {
+        menuIcon.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
         });
-
-        // Remove o efeito de sombra ao sair
-        link.addEventListener("mouseleave", function () {
-            link.style.textShadow = "none";
-        });
-    });
-});
-
-// Efeito de Aparição Gradual nos Links do Nav
-document.addEventListener("DOMContentLoaded", function () {
-    let links = document.querySelectorAll("nav ul li a");
-
-    links.forEach((link, index) => {
-        link.style.opacity = "0"; // Começa invisível
-        setTimeout(() => {
-            link.style.opacity = "1"; // Efeito de aparição
-            link.style.transition = "opacity 1s ease";
-        }, index * 200); // Adiciona um pequeno delay para cada link (efeito em cascata)
-    });
-});
-
-// Ajustar Responsividade do Texto no Título (Opcional)
-window.addEventListener("resize", () => {
-    const typingText = document.getElementById("typing-text");
-    if (window.innerWidth < 768) {
-        typingText.style.fontSize = "24px"; // Tamanho menor para dispositivos móveis
-    } else {
-        typingText.style.fontSize = "48px"; // Tamanho padrão
     }
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-    const navLinks = document.querySelectorAll("nav a"); // Seleciona os links do menu de navegação
-
+    // --- ROLAGEM SUAVE E FECHAMENTO DO MENU AO CLICAR NO LINK ---
+    const navLinks = document.querySelectorAll("nav a");
     navLinks.forEach(link => {
         link.addEventListener("click", (event) => {
-            event.preventDefault(); // Evita o comportamento padrão do clique
-            const targetId = link.getAttribute("href").substring(1); // Remove o "#" do ID
-            const targetElement = document.getElementById(targetId);
+            const href = link.getAttribute("href");
+            if (href.startsWith("#")) {
+                event.preventDefault();
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    const headerOffset = 80; // Altura do header para dar espaço
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-            // Calcula o deslocamento (ajuste para parar certinho no título)
-            const offset = 80; // Altura do deslocamento (por exemplo, altura do header fixo)
-            const targetPosition = targetElement.offsetTop - offset;
-
-            // Rola suavemente até o local ajustado
-            window.scrollTo({
-                top: targetPosition,
-                behavior: "smooth"
-            });
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+                
+                // Fecha o menu hambúrguer (se estiver aberto) após o clique
+                if (navMenu.classList.contains("active")) {
+                    navMenu.classList.remove("active");
+                }
+            }
         });
     });
+
+    // --- LÓGICA OTIMIZADA PARA SEÇÕES RECOLHÍVEIS ---
+    const sections = [
+        { header: ".sobre-header", content: ".sobre-conteudo", seta: "#sobre .seta" },
+        { header: ".ferramentas-header", content: ".ferramentas-conteudo", seta: "#ferramentas .seta" },
+        { header: ".academico-header", content: ".academico-conteudo", seta: "#academico .seta" },
+        { header: ".experiencias-header", content: ".experiencias-conteudo", seta: "#experiencias .seta" },
+        { header: ".projetos-header", content: ".projetos-conteudo", seta: "#projetospessoais .seta" }
+    ];
+
+    sections.forEach(section => {
+        const headerEl = document.querySelector(section.header);
+        const contentEl = document.querySelector(section.content);
+        const setaEl = document.querySelector(section.seta);
+
+        if (headerEl && contentEl && setaEl) {
+            headerEl.addEventListener("click", () => {
+                contentEl.classList.toggle("mostrar");
+                setaEl.classList.toggle("girar");
+            });
+        }
+    });
+
 });
-
-document.addEventListener("DOMContentLoaded", () => {
-    // Configuração para a seção "Sobre"
-    const sobreHeader = document.querySelector("#sobre .sobre-header");
-    const sobreConteudo = document.querySelector("#sobre .sobre-conteudo");
-    const sobreSeta = document.querySelector("#sobre .seta");
-
-    sobreHeader.addEventListener("click", () => {
-        sobreConteudo.classList.toggle("mostrar");
-        sobreSeta.classList.toggle("girar");
-    });
-
-    // Configuração para a seção "Ferramentas"
-    const ferramentasHeader = document.querySelector("#ferramentas .ferramentas-header");
-    const ferramentasConteudo = document.querySelector("#ferramentas .ferramentas-conteudo");
-    const ferramentasSeta = document.querySelector("#ferramentas .seta");
-
-    ferramentasHeader.addEventListener("click", () => {
-        ferramentasConteudo.classList.toggle("mostrar");
-        ferramentasSeta.classList.toggle("girar");
-    });
-
-    // Configuração para a seção "Acadêmico"
-    const academicoHeader = document.querySelector("#academico h2");
-    const academicoConteudo = document.querySelectorAll("#academico .educacao");
-    const academicoSeta = document.querySelector("#academico .seta");
-
-    academicoHeader.addEventListener("click", () => {
-        academicoConteudo.forEach((item) => item.classList.toggle("mostrar"));
-        academicoSeta.classList.toggle("girar");
-    });
-
-    // Configuração para a seção "Experiências"
-    const experienciasHeader = document.querySelector("#experiencias h2");
-    const experienciasConteudo = document.querySelectorAll("#experiencias .experiencia");
-    const experienciasSeta = document.querySelector("#experiencias .seta");
-
-    experienciasHeader.addEventListener("click", () => {
-        experienciasConteudo.forEach((item) => item.classList.toggle("mostrar"));
-        experienciasSeta.classList.toggle("girar");
-    });
-
-    // Configuração para a seção "Projetos"
-    const projetosHeader = document.querySelector("#projetospessoais h2");
-    const projetosConteudo = document.querySelector("#projetospessoais ul");
-    const projetosSeta = document.querySelector("#projetospessoais .seta");
-
-    projetosHeader.addEventListener("click", () => {
-        projetosConteudo.classList.toggle("mostrar");
-        projetosSeta.classList.toggle("girar");
-    });
-});
-
-// menu hamburguer nav
-// Seleciona o ícone do menu e o menu de navegação
-const menuIcon = document.getElementById("menu-icon");
-const navMenu = document.querySelector("nav ul");
-
-// Alterna a classe 'active' para abrir ou fechar o menu
-menuIcon.addEventListener("click", () => {
-  navMenu.classList.toggle("active");
-});
-
