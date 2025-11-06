@@ -7,6 +7,7 @@ Aqui você encontrará uma seleção de projetos desenvolvidos ao longo da minha
 Sou Matheus Evaristo, um desenvolvedor dedicado a tecnologia e inovação. Graduado em Analise e Desevolvimento de sistemas na Descomplica, Formado em Técnico em Informática pelo SENAI. Tenho experiência prática em projetos de desenvolvimento full stack e suporte técnico em TI.
 
 🛠️ Tecnologias Utilizadas
+
 HTML5
 
 CSS3
