@@ -1,8 +1,7 @@
-Matheus Evaristo - Portfólio
-Bem-vindo ao meu portfólio! Aqui você encontrará uma seleção de projetos desenvolvidos ao longo da minha jornada como desenvolvedor front-end, com foco em HTML, CSS, JavaScript, TypeScript e Angular.
+Bem-vindo ao meu portfólio! Aqui você encontrará uma seleção de projetos desenvolvidos ao longo da minha jornada como desenvolvedor.
 
 🚀 Sobre
-Sou Matheus Evaristo, um desenvolvedor apaixonado por tecnologia e inovação. Atualmente, estou cursando Física na UERJ e Técnico em Informática pelo SENAI. Tenho experiência prática em projetos de desenvolvimento front-end e suporte técnico em TI.
+Sou Matheus Evaristo, um desenvolvedor dedicado a tecnologia e inovação. Graduado em Analise e Desevolvimento de sistemas na Descomplica, Formado em Técnico em Informática pelo SENAI. Tenho experiência prática em projetos de desenvolvimento full stack e suporte técnico em TI.
 
 🛠️ Tecnologias Utilizadas
 HTML5
@@ -11,9 +10,19 @@ CSS3
 
 JavaScript
 
+Java
+
+PHP
+
 TypeScript
 
 Angular
+
+Spring Boot
+
+Laravel
+
+Codiginiter 3
 
 Git & GitHub
 
