@@ -1,4 +1,6 @@
-Bem-vindo ao meu portfólio! Aqui você encontrará uma seleção de projetos desenvolvidos ao longo da minha jornada como desenvolvedor.
+Bem-vindo ao meu portfólio! 
+
+Aqui você encontrará uma seleção de projetos desenvolvidos ao longo da minha jornada como desenvolvedor.
 
 🚀 Sobre
 
