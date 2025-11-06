@@ -49,4 +49,4 @@ Abra os arquivos no seu editor preferido.
 Execute o projeto em seu navegador.
 
 📬 Contato
-Se quiser saber mais sobre mim ou entrar em contato, fique à vontade para me enviar uma mensagem no LinkedIn ou por e-mail: math_eva1502@hotmail.com.
+Se quiser saber mais sobre mim ou entrar em contato, fique à vontade para me enviar uma mensagem no LinkedIn ou por e-mail: matheusevaristo_ti@hotmail.com.
