@@ -1,83 +1,56 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // --- EFEITO DE DIGITAÇÃO PARA O TÍTULO ---
-    const text = "Matheus Evaristo";
-    const typingText = document.getElementById("typing-text");
-    if (typingText) {
-        let index = 0;
-        function type() {
-            if (index < text.length) {
-                typingText.innerHTML += text.charAt(index);
-                index++;
-                setTimeout(type, 100);
-            } else {
-                // Remove o cursor piscante no final da animação
-                typingText.style.borderRightColor = "transparent";
+    // --- 1. JS PODEROSO: ANIMAÇÃO DE SCROLL (Intersection Observer) ---
+    // Isso detecta quando um elemento '.reveal' entra na tela e adiciona a classe '.active'
+    const observerOptions = {
+        threshold: 0.15 // Ativa quando 15% do elemento estiver visível
+    };
 
+    const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Se quiser que a animação aconteça apenas uma vez (recomendado), descomente abaixo:
+                // observer.unobserve(entry.target); 
             }
-        }
-        type();
-    }
+        });
+    }, observerOptions);
 
-    // --- LÓGICA DO MENU HAMBÚRGUER ---
+    // Seleciona todos os elementos com a classe .reveal
+    const elementsToReveal = document.querySelectorAll('.reveal');
+    elementsToReveal.forEach(el => scrollObserver.observe(el));
+
+
+    // --- 2. MENU MOBILE ---
     const menuIcon = document.getElementById("menu-icon");
     const navMenu = document.getElementById("nav-menu");
+    const navLinks = document.querySelectorAll("#nav-menu a");
 
-    if (menuIcon && navMenu) {
+    if(menuIcon && navMenu){
         menuIcon.addEventListener("click", () => {
             navMenu.classList.toggle("active");
+            menuIcon.innerHTML = navMenu.classList.contains("active") ? "&times;" : "&#9776;";
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                navMenu.classList.remove("active");
+                menuIcon.innerHTML = "&#9776;";
+            });
         });
     }
 
-    // --- ROLAGEM SUAVE E FECHAMENTO DO MENU AO CLICAR NO LINK ---
-    const navLinks = document.querySelectorAll("nav a");
-    navLinks.forEach(link => {
-        link.addEventListener("click", (event) => {
-            const href = link.getAttribute("href");
-            if (href.startsWith("#")) {
-                event.preventDefault();
-                const targetId = href.substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    const headerOffset = 80; // Altura do header para dar espaço
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    // --- 3. EFEITO DE DIGITAÇÃO ---
+    const text = "Matheus Evaristo";
+    const typingElement = document.getElementById("typing-text");
+    let index = 0;
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                }
-                
-                // Fecha o menu hambúrguer (se estiver aberto) após o clique
-                if (navMenu.classList.contains("active")) {
-                    navMenu.classList.remove("active");
-                }
-            }
-        });
-    });
-
-    // --- LÓGICA OTIMIZADA PARA SEÇÕES RECOLHÍVEIS ---
-    const sections = [
-        { header: ".sobre-header", content: ".sobre-conteudo", seta: "#sobre .seta" },
-        { header: ".ferramentas-header", content: ".ferramentas-conteudo", seta: "#ferramentas .seta" },
-        { header: ".academico-header", content: ".academico-conteudo", seta: "#academico .seta" },
-        { header: ".experiencias-header", content: ".experiencias-conteudo", seta: "#experiencias .seta" },
-        { header: ".projetos-header", content: ".projetos-conteudo", seta: "#projetospessoais .seta" }
-    ];
-
-    sections.forEach(section => {
-        const headerEl = document.querySelector(section.header);
-        const contentEl = document.querySelector(section.content);
-        const setaEl = document.querySelector(section.seta);
-
-        if (headerEl && contentEl && setaEl) {
-            headerEl.addEventListener("click", () => {
-                contentEl.classList.toggle("mostrar");
-                setaEl.classList.toggle("girar");
-            });
+    function type() {
+        if (index < text.length) {
+            typingElement.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, 120);
         }
-    });
-
+    }
+    setTimeout(type, 500);
 });
