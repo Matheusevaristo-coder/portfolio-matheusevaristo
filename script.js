@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- 1. JS PODEROSO: ANIMAÇÃO DE SCROLL (Intersection Observer) ---
     // Isso detecta quando um elemento '.reveal' entra na tela e adiciona a classe '.active'
     const observerOptions = {
-        threshold: 0.15 // Ativa quando 15% do elemento estiver visível
+        threshold: 0 // Revela também seções longas assim que entram na tela
     };
 
     const scrollObserver = new IntersectionObserver((entries, observer) => {
